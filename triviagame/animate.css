@@ -8,6 +8,41 @@
  * Copyright (c) 2016 Daniel Eden
  */
 
+ body
+ {
+  background-color:black;
+ }
+
+ p
+ {
+  color:white;
+ }
+
+ h1
+ {
+  color:white;
+ }
+
+ h2
+ {
+  color:white;
+ }
+
+ h3
+ {
+  color:white;
+ }
+
+ h4
+ {
+  color:white;
+ }
+
+ input
+ {
+  color:white;
+ }
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;

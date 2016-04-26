@@ -1,6 +1,7 @@
+
 // Trivia game Psuedo Code
 
-// Welcome Page with msg "Welcome to Disney Trivia"
+// Welcome Page with msg "Welcome to Trivia"
 // Directions?
 // Three strikes and you lose.
 // The user should type their name.
@@ -13,10 +14,12 @@ $(document).ready(function() {
   var playerAnswer2 = '';
   var playerAnswer3 = '';
   var playerAnswer4 = '';
+  var playerAnswer5 = '';
   var answer1 = 'more questions'
   var answer2 = 'asgore dreemurr'
   var answer3 = 'metal & magic'
   var answer4 = '32.058 minutes'
+  var answer5 = '30'
   var correctCounter = 0;
   var triesLeft = 5
 
@@ -26,6 +29,7 @@ $(document).ready(function() {
   $('.correct-msg').hide();
   $('.incorrect-msg').hide();
   $('#lose-game-msg').hide();
+  $('#win-game-msg').hide();
 
   /********************************************************
   Dashboard / Welcome Screen
@@ -189,12 +193,12 @@ $(document).ready(function() {
 
   function answerCheck3() {
     // If player gets question right...
-    if(playerAnswer2 === answer2) {
+    if(playerAnswer3 === answer3) {
       console.log("Player's answer is correct!");
       $('#correct-msg3').show().addClass('animated fadeIn');
       correctCounter++;
       $('#score').text(correctCounter);
-      setTimeout(fadeOutQuestion2, 2500);
+      setTimeout(fadeOutQuestion3, 2500);
     }
     else {
       // If player gets question wrong...
@@ -211,7 +215,7 @@ $(document).ready(function() {
   // Store answer 4
   $('#question4-btn').on('click', function(e) {
     e.preventDefault(); // prevents form from submitting to a database
-    playerAnswer4 = $('#input-question3').val().trim().toLowerCase(); // This assigns the user's input to the variable playerAnswer1
+    playerAnswer4 = $('#input-question4').val().trim().toLowerCase(); // This assigns the user's input to the variable playerAnswer1
     console.log('The players answer for question 4 is ' + playerAnswer4);
     // showPlayerAnswer1(); // This first showPlayerAnswer1 function
     answerCheck4();
@@ -219,8 +223,8 @@ $(document).ready(function() {
 
   // Show answers
   function showPlayerAnswer4() {
-    $('#show-player-answer4').text(playerAnswer3);
-    $('#correct-answer4').text(answer3)
+    $('#show-player-answer4').text(playerAnswer4);
+    $('#correct-answer4').text(answer4)
   };
 
   // Fade out answer check message
@@ -230,23 +234,71 @@ $(document).ready(function() {
 
   function fadeOutQuestion4() {
     $('#question4').addClass('animated fadeOut');
-    setTimeout($('#question3').detach(), 2500);
+    setTimeout($('#question4').detach(), 2500);
     $('#question5').show().addClass('animated fadeIn');
   };
 
   function answerCheck4() {
     // If player gets question right...
-    if(playerAnswer2 === answer2) {
+    if(playerAnswer4 === answer4) {
       console.log("Player's answer is correct!");
       $('#correct-msg4').show().addClass('animated fadeIn');
       correctCounter++;
       $('#score').text(correctCounter);
-      setTimeout(fadeOutQuestion2, 2500);
+      setTimeout(fadeOutQuestion4, 2500);
     }
     else {
       // If player gets question wrong...
       console.log("Player's answer is incorrect!");
       $('#incorrect-msg4').show().addClass('animated fadeIn');
+      setTimeout(fadeOutAnswerCheckMsg, 2500);
+    }
+  };
+
+
+/********************************************************
+  QUESTION 5
+  ********************************************************/
+
+  // Store answer 5
+  $('#question5-btn').on('click', function(e) {
+    e.preventDefault(); // prevents form from submitting to a database
+    playerAnswer5 = $('#input-question5').val().trim().toLowerCase(); // This assigns the user's input to the variable playerAnswer1
+    console.log('The players answer for question 5 is ' + playerAnswer5);
+    // showPlayerAnswer1(); // This first showPlayerAnswer1 function
+    answerCheck5();
+  });
+
+  // Show answers
+  function showPlayerAnswer5() {
+    $('#show-player-answer5').text(playerAnswer5);
+    $('#correct-answer5').text(answer5)
+  };
+
+  // Fade out answer check message
+  function fadeOutAnswerCheckMsg() {
+    $('#incorrect-msg5').removeClass('fadeIn').addClass('fadeOut');
+  };
+
+  function fadeOutQuestion5() {
+    $('#question5').addClass('animated fadeOut');
+    setTimeout($('#question5').detach(), 2500);
+    $('#win-game-msg').show().addClass('animated fadeIn');
+  };
+
+  function answerCheck5() {
+    // If player gets question right...
+    if(playerAnswer5 === answer5) {
+      console.log("Player's answer is correct!");
+      $('#correct-msg5').show().addClass('animated fadeIn');
+      correctCounter++;
+      $('#score').text(correctCounter);
+      setTimeout(fadeOutQuestion5, 2500);
+    }
+    else {
+      // If player gets question wrong...
+      console.log("Player's answer is incorrect!");
+      $('#incorrect-msg5').show().addClass('animated fadeIn');
       setTimeout(fadeOutAnswerCheckMsg, 2500);
     }
   };
