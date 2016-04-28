@@ -94,7 +94,12 @@ $(document).ready(function() {
       $('.question').detach();
       $('#lose-game-msg').show().addClass('animated fadeIn')
     };
+    $('#replay-btn').on('click', function() {
+      console.log('replay-btn function fired');
+      location.reload();
+    });
   };
+
 
   function answerCheck1() {
     // If player gets question right...
@@ -111,6 +116,7 @@ $(document).ready(function() {
       $('#incorrect-msg1').show().addClass('animated fadeIn');
       triesLeftCountdown();
       setTimeout(fadeOutAnswerCheckMsg, 2500);
+      $('#input-question1').val('');
     }
   };
 
@@ -158,6 +164,7 @@ $(document).ready(function() {
       console.log("Player's answer is incorrect!");
       $('#incorrect-msg2').show().addClass('animated fadeIn');
       setTimeout(fadeOutAnswerCheckMsg, 2500);
+      $('#input-question2').val('');
     }
   };
 
@@ -205,6 +212,7 @@ $(document).ready(function() {
       console.log("Player's answer is incorrect!");
       $('#incorrect-msg3').show().addClass('animated fadeIn');
       setTimeout(fadeOutAnswerCheckMsg, 2500);
+      $('#input-question3').val('');
     }
   };
 
@@ -252,6 +260,7 @@ $(document).ready(function() {
       console.log("Player's answer is incorrect!");
       $('#incorrect-msg4').show().addClass('animated fadeIn');
       setTimeout(fadeOutAnswerCheckMsg, 2500);
+      $('#input-question4').val('');
     }
   };
 
@@ -300,6 +309,7 @@ $(document).ready(function() {
       console.log("Player's answer is incorrect!");
       $('#incorrect-msg5').show().addClass('animated fadeIn');
       setTimeout(fadeOutAnswerCheckMsg, 2500);
+      $('#input-question5').val('');
     }
   };
 
